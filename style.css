@@ -145,3 +145,21 @@ button:hover {
     max-width: 800px;
     height: auto;
 }
+/* Background Video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensures video covers the entire screen */
+    z-index: -1; /* Sends the video to the background */
+}
+
+/* Move content closer to the top */
+.transmission-container {
+    position: relative;
+    top: 20px; /* Adjust this value as needed */
+    text-align: center;
+    color: white;
+}
