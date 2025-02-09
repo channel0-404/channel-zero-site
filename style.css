@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.glitch-text {
+    font-size: 2em;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px red; }
+    50% { text-shadow: -2px -2px blue; }
+    100% { text-shadow: 2px 2px green; }
+}
+
+.static-message {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
