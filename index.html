@@ -15,48 +15,65 @@
         <source src="real-vhs-169982.mp3" type="audio/mp3">
     </audio>
 
-    <!-- Input box & Submit button (always visible) -->
+    <!-- Input box with label (no submit button) -->
     <div class="input-container">
-        <input type="text" id="code-input" placeholder="Enter Code">
-        <button id="submit-code">Submit</button>
+        <label for="code-input">Enter Code:</label>
+        <input type="text" id="code-input" placeholder="Type here...">
     </div>
+
+    <!-- Error message (hidden by default) -->
+    <p id="error-message" class="hidden">ACCESS DENIED</p>
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         let codeInput = document.getElementById("code-input");
-        let submitBtn = document.getElementById("submit-code");
+        let errorMessage = document.getElementById("error-message");
 
-        // Handle submit button click
-        submitBtn.addEventListener("click", function() {
-            let code = codeInput.value.trim(); // Trim whitespace
-            if (code === "404") {
-                window.location.href = "secret.html"; // Redirect to secret.html
-            } else {
-                alert("Access Denied.");
-            }
-        });
-
-        // Allow pressing Enter inside input to submit code
+        // Handle Enter key press inside input box
         codeInput.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-                submitBtn.click(); // Simulate button click
-                event.preventDefault(); // Prevent default Enter behavior
+                event.preventDefault(); // Prevents form submission behavior
+                let code = codeInput.value.trim(); // Trim whitespace
+
+                if (code === "404") {
+                    window.location.href = "secret.html"; // Redirect to secret.html
+                } else {
+                    // Show the error message and make it flash red
+                    errorMessage.classList.remove("hidden");
+                    errorMessage.classList.add("flash-error");
+                    
+                    // Clear input field
+                    codeInput.value = "";
+
+                    // Remove flashing effect after 1 second
+                    setTimeout(() => {
+                        errorMessage.classList.remove("flash-error");
+                        errorMessage.classList.add("hidden");
+                    }, 1000);
+                }
             }
         });
     });
     </script>
 
     <style>
-    /* Ensuring the input box & button are ALWAYS visible */
+    /* Input & label container */
     .input-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
         margin-top: 20px;
-        justify-content: center; /* Centers the input & button */
     }
 
-    /* Input field styling */
+    /* Input label */
+    .input-container label {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    /* Input field */
     #code-input {
         width: 200px;
         padding: 8px;
@@ -64,25 +81,33 @@
         border: 2px solid #ccc;
         border-radius: 5px;
         outline: none;
-        display: block; /* Ensures visibility */
+        text-align: center;
     }
 
-    /* Button styling */
-    #submit-code {
-        padding: 8px 12px;
-        font-size: 16px;
-        border: none;
-        background-color: #ff0000;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: 0.3s;
-        display: block; /* Ensures visibility */
+    /* Error message */
+    #error-message {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: red;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
     }
 
-    /* Button hover effect */
-    #submit-code:hover {
-        background-color: #cc0000;
+    /* Flashing effect */
+    .flash-error {
+        animation: flash 0.5s alternate 3;
+    }
+
+    @keyframes flash {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    /* Hide elements */
+    .hidden {
+        display: none;
     }
     </style>
 
