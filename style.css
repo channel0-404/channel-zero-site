@@ -21,6 +21,44 @@ body {
     font-size: 1.2em;
     opacity: 0.8;
 }
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: limegreen;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+input {
+    background: black;
+    color: limegreen;
+    border: 1px solid limegreen;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    background: limegreen;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+}
+
 
 
 
