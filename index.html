@@ -10,43 +10,79 @@
     <div class="glitch-text">CHANNEL Ø - SIGNAL LOST</div>
     <p class="static-message">404 ERROR: TRANSMISSION INTERRUPTED</p>
     <a href="live.html">🔴 LIVE SIGNAL</a>
-    
+
     <audio autoplay loop>
         <source src="real-vhs-169982.mp3" type="audio/mp3">
     </audio>
 
-    <input type="text" id="code-input" placeholder="Enter Code" class="hidden">
-    <button id="submit-code" class="hidden">Submit</button>
+    <!-- Input box & Submit button (always visible) -->
+    <div class="input-container">
+        <input type="text" id="code-input" placeholder="Enter Code">
+        <button id="submit-code">Submit</button>
+    </div>
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         let codeInput = document.getElementById("code-input");
         let submitBtn = document.getElementById("submit-code");
 
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Enter" && codeInput.classList.contains("hidden")) {
-                codeInput.classList.remove("hidden");
-                submitBtn.classList.remove("hidden");
-                codeInput.focus();
-            }
-        });
-
+        // Handle submit button click
         submitBtn.addEventListener("click", function() {
-            let code = codeInput.value;
+            let code = codeInput.value.trim(); // Trim whitespace
             if (code === "404") {
                 window.location.href = "login.html";
             } else {
                 alert("Access Denied.");
             }
         });
+
+        // Allow pressing Enter inside input to submit code
+        codeInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                submitBtn.click(); // Simulate button click
+                event.preventDefault(); // Prevent new lines in input field
+            }
+        });
     });
     </script>
 
     <style>
-    .hidden {
-        display: none;
+    /* Input & button container */
+    .input-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    /* Input field styling */
+    #code-input {
+        flex: 1;
+        padding: 8px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    /* Button styling */
+    #submit-code {
+        padding: 8px 12px;
+        font-size: 16px;
+        border: none;
+        background-color: #ff0000;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    /* Button hover effect */
+    #submit-code:hover {
+        background-color: #cc0000;
     }
     </style>
 
 </body>
 </html>
+
