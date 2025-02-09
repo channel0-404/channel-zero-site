@@ -30,7 +30,7 @@
         submitBtn.addEventListener("click", function() {
             let code = codeInput.value.trim(); // Trim whitespace
             if (code === "404") {
-                window.location.href = "login.html";
+                window.location.href = "secret.html"; // Redirect to secret.html
             } else {
                 alert("Access Denied.");
             }
@@ -40,14 +40,14 @@
         codeInput.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 submitBtn.click(); // Simulate button click
-                event.preventDefault(); // Prevent new lines in input field
+                event.preventDefault(); // Prevent default Enter behavior
             }
         });
     });
     </script>
 
     <style>
-    /* Input & button container */
+    /* Ensuring the input box & button are ALWAYS visible */
     .input-container {
         display: flex;
         align-items: center;
@@ -58,12 +58,13 @@
 
     /* Input field styling */
     #code-input {
-        width: 200px; /* Adjust as needed */
+        width: 200px;
         padding: 8px;
         font-size: 16px;
         border: 2px solid #ccc;
         border-radius: 5px;
         outline: none;
+        display: block; /* Ensures visibility */
     }
 
     /* Button styling */
@@ -76,6 +77,7 @@
         cursor: pointer;
         border-radius: 5px;
         transition: 0.3s;
+        display: block; /* Ensures visibility */
     }
 
     /* Button hover effect */
