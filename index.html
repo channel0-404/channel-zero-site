@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Project 404 was never shut down. They only want you to think it was. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Channel Ø - Intercepted Transmission</title>
@@ -11,29 +10,45 @@
     <div class="glitch-text">CHANNEL Ø - SIGNAL LOST</div>
     <p class="static-message">404 ERROR: TRANSMISSION INTERRUPTED</p>
     <a href="live.html">🔴 LIVE SIGNAL</a>
+    
     <audio autoplay loop>
         <source src="real-vhs-169982.mp3" type="audio/mp3">
     </audio>
-    <input type="text" id="code-input" placeholder="Enter Code" style="display:none;">
-<button id="submit-code" style="display:none;">Submit</button>
-<script>
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        document.getElementById("code-input").style.display = "block";
-        document.getElementById("submit-code").style.display = "block";
-    }
-});
 
-document.getElementById("submit-code").addEventListener("click", function() {
-    let code = document.getElementById("code-input").value;
-    if (code === "404") {
-        window.location.href = "login.html";
-    } else {
-        alert("Access Denied.");
+    <input type="text" id="code-input" placeholder="Enter Code" class="hidden">
+    <button id="submit-code" class="hidden">Submit</button>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let codeInput = document.getElementById("code-input");
+        let submitBtn = document.getElementById("submit-code");
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" && codeInput.classList.contains("hidden")) {
+                codeInput.classList.remove("hidden");
+                submitBtn.classList.remove("hidden");
+                codeInput.focus();
+            }
+        });
+
+        submitBtn.addEventListener("click", function() {
+            let code = codeInput.value;
+            if (code === "404") {
+                window.location.href = "login.html";
+            } else {
+                alert("Access Denied.");
+            }
+        });
+    });
+    </script>
+
+    <style>
+    .hidden {
+        display: none;
     }
-});
-</script>
+    </style>
 
 </body>
 </html>
+
 
