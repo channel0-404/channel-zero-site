@@ -7,24 +7,6 @@
     <title>Channel Ø - Intercepted Transmission</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <script>
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        document.getElementById("code-input").style.display = "block";
-        document.getElementById("submit-code").style.display = "block";
-    }
-});
-
-document.getElementById("submit-code").addEventListener("click", function() {
-    let code = document.getElementById("code-input").value;
-    if (code === "404") {
-        window.location.href = "login.html";
-    } else {
-        alert("Access Denied.");
-    }
-});
-</script>
-
 <body>
     <div class="glitch-text">CHANNEL Ø - SIGNAL LOST</div>
     <p class="static-message">404 ERROR: TRANSMISSION INTERRUPTED</p>
