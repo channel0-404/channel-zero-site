@@ -21,3 +21,8 @@ body {
     font-size: 1.2em;
     opacity: 0.8;
 }
+.hidden-message {
+    color: black;
+    background-color: black;
+}
+
