@@ -163,3 +163,24 @@ button:hover {
     text-align: center;
     color: white;
 }
+/* Background Video - Full Screen */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Move content closer to the top */
+.transmission-container {
+    position: absolute;
+    top: 5%;  /* Moves everything closer to the top */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
