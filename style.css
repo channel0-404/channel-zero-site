@@ -120,14 +120,3 @@ button:hover {
     50% { text-shadow: -3px -3px blue; }
     100% { text-shadow: 3px -3px green; }
 }
-#code-input, #submit-code {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background: black;
-    color: green;
-    border: 1px solid green;
-    display: none;
-}
-
-
