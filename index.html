@@ -27,21 +27,30 @@
         let submitBtn = document.getElementById("submit-code");
         let inputContainer = document.querySelector(".input-container");
 
-        // Show input and button when Enter is pressed
+        // Show input box & button only if hidden when Enter is pressed outside the input field
         document.addEventListener("keydown", function(event) {
             if (event.key === "Enter" && inputContainer.classList.contains("hidden")) {
                 inputContainer.classList.remove("hidden");
                 codeInput.focus();
+                event.preventDefault(); // Prevent default enter behavior
             }
         });
 
         // Handle submit button click
         submitBtn.addEventListener("click", function() {
-            let code = codeInput.value;
+            let code = codeInput.value.trim(); // Trim whitespace
             if (code === "404") {
                 window.location.href = "login.html";
             } else {
                 alert("Access Denied.");
+            }
+        });
+
+        // Prevent pressing Enter inside input from triggering global event
+        codeInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                submitBtn.click(); // Simulate button click
+                event.preventDefault(); // Prevent new lines in input field
             }
         });
     });
@@ -91,5 +100,3 @@
 
 </body>
 </html>
-
-
