@@ -83,6 +83,42 @@ button:hover {
 #error-message {
     margin-top: 10px;
     font-size: 16px;
+}/* Glitchy Background */
+.glitch-background {
+    background: black;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+    font-size: 28px;
+    animation: glitch 1s infinite;
+}
+
+/* Video Container */
+#broadcast-screen {
+    margin-top: 20px;
+    position: relative;
+}
+
+#static-video {
+    width: 80%;
+    max-width: 800px;
+    filter: contrast(1.5) brightness(0.8);
+}
+
+#message {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+    0% { text-shadow: 3px 3px red; }
+    50% { text-shadow: -3px -3px blue; }
+    100% { text-shadow: 3px -3px green; }
 }
 
 
