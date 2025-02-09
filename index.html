@@ -15,7 +15,7 @@
         <source src="real-vhs-169982.mp3" type="audio/mp3">
     </audio>
 
-    <!-- Input box with label (no submit button) -->
+    <!-- Input box with label (Always Visible) -->
     <div class="input-container">
         <label for="code-input">Enter Code:</label>
         <input type="text" id="code-input" placeholder="Type here...">
@@ -32,7 +32,7 @@
         // Handle Enter key press inside input box
         codeInput.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-                event.preventDefault(); // Prevents form submission behavior
+                event.preventDefault(); // Prevents default form behavior
                 let code = codeInput.value.trim(); // Trim whitespace
 
                 if (code === "404") {
@@ -57,7 +57,7 @@
     </script>
 
     <style>
-    /* Input & label container */
+    /* Ensuring input box & label are always visible */
     .input-container {
         display: flex;
         flex-direction: column;
@@ -82,6 +82,7 @@
         border-radius: 5px;
         outline: none;
         text-align: center;
+        display: block; /* Ensures it's always visible */
     }
 
     /* Error message */
