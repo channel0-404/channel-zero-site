@@ -136,3 +136,12 @@ button:hover {
 #submit-code {
     cursor: pointer;
 }
+#live-feed {
+    position: absolute;
+    top: 30%;  /* Moves it higher */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+}
